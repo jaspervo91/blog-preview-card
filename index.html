@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png" />
+    <title>Frontend Mentor | Blog preview card</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&display=swap"
+      rel="stylesheet" />
+    <style>
+      :root {
+        --color-yellow: hsl(47, 88%, 63%);
+        --color-gray-950: hsl(0, 0%, 7%);
+        --color-gray-500: hsl(0, 0%, 42%);
+        --color-white: hsl(0, 0%, 100%);
+
+        --font-base: "Figtree", sans-serif;
+
+        --text-preset-1: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem);
+        --text-preset-2: clamp(0.875rem, 0.831rem + 0.1878vw, 1rem);
+        --text-preset-3: clamp(0.75rem, 0.706rem + 0.1878vw, 0.875rem);
+
+        --font-bold: 800;
+
+        --space-200: 1.5rem;
+        --space-150: 0.75rem;
+        --space-100: 0.5rem;
+        --space-50: 0.25rem;
+      }
+
+      body {
+        background: var(--color-yellow);
+        color: var(--color-gray-950);
+        display: flex;
+        flex-direction: column;
+        font-family: var(--font-base);
+        font-weight: 500;
+      }
+
+      :is(h1, h2) {
+        font-weight: var(--font-bold);
+        max-inline-size: 30ch;
+      }
+
+      p {
+        max-inline-size: 60ch;
+      }
+
+      a {
+        color: currentColor;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+
+      :focus {
+        outline-offset: 0.25lh;
+        outline: 2px solid currentColor;
+      }
+
+      main {
+        display: flex;
+        flex: auto;
+        padding: var(--space-200);
+      }
+
+      ::selection {
+        background: var(--color-gray-950);
+        color: var(--color-white);
+      }
+
+      /* Compositional layouts */
+      .cluster {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--gap, 1rem);
+        justify-content: flex-start;
+      }
+
+      .flow > * + * {
+        margin-block-start: var(--flow-space, 1em);
+      }
+
+      /* Utilities */
+      .visually-hidden {
+        block-size: 1px;
+        clip-path: inset(50%);
+        inline-size: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+      }
+
+      /* Blocks */
+      .card {
+        --flow-space: var(--space-200);
+        background: var(--color-white);
+        border-radius: 20px;
+        border: 1px solid var(--color-gray-950);
+        box-shadow: #000000 8px 8px;
+        margin: auto;
+        max-inline-size: 384px;
+        padding: var(--space-200);
+      }
+
+      .card img {
+        border-radius: 10px;
+      }
+
+      .card__content {
+        --flow-space: var(--space-150);
+        font-size: var(--text-preset-2);
+        margin-block-start: var(--space-200);
+      }
+
+      .card__content .badge {
+        background: var(--color-yellow);
+        border-radius: 4px;
+        font-size: var(--text-preset-3);
+        font-weight: var(--font-bold);
+        inline-size: fit-content;
+        padding-block: var(--space-50);
+        padding-inline: var(--space-150);
+      }
+
+      .card__content .publish-date {
+        font-size: var(--text-preset-3);
+      }
+
+      .card__content h2 {
+        font-size: var(--text-preset-1);
+      }
+
+      .card__content h2 a {
+        text-decoration: none;
+      }
+
+      .card__content h2 a:where(:hover, :focus) {
+        color: var(--color-yellow);
+      }
+
+      .card__content h2 + p {
+        color: var(--color-gray-500);
+      }
+
+      .author {
+        --gap: var(--space-150);
+        font-size: 0.875rem;
+        font-weight: var(--font-bold);
+      }
+
+      .site-foot {
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1 class="visually-hidden">Blog preview card</h1>
+      <article class="card flow">
+        <img src="assets/images/illustration-article.svg" alt="Blog image" />
+        <div class="card__content flow">
+          <p class="badge">Learning</p>
+          <p class="publish-date">
+            Published <time datetime="2023-12-21">21 Dec 2023</time>
+          </p>
+          <h2><a href="#">HTML & CSS foundations</a></h2>
+          <p>
+            These languages are the backbone of every website, defining
+            structure, content, and presentation.
+          </p>
+        </div>
+        <figure class="author cluster">
+          <img
+            src="assets/images/image-avatar.webp"
+            width="32"
+            height="32"
+            alt="Greg Hooper's avatar" />
+          <figcaption>Greg Hooper</figcaption>
+        </figure>
+      </article>
+    </main>
+    <footer class="site-foot">
+      <p>
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by Jasper.
+      </p>
+    </footer>
+  </body>
+</html>
